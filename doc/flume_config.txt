@@ -1,0 +1,169 @@
+#agent section
+tier1.sources = cmccSrc1 cmccSrc2 cmccSrc3 cmccSrc4 cmccSrc5 cmccSrc6
+tier1.channels = cmccCh1 cmccCh2 cmccCh3 cmccCh4 cmccCh5 cmccCh6
+tier1.sinks = cmccSink1 cmccSink2 cmccSink3 cmccSink4 cmccSink5 cmccSink6
+
+#----cmcc----------------#
+
+############################
+#hive_serverbuild_flow_min
+############################
+#source section  
+tier1.sources.cmccSrc1.type = spooldir
+tier1.sources.cmccSrc1.channels = cmccCh1
+tier1.sources.cmccSrc1.spoolDir = /home/hadoop/cmcc/hivedata/ServerBuildStatis/
+tier1.sources.cmccSrc1.deserializer.maxLineLength = 10240
+tier1.sources.cmccSrc1.fileHeader = false
+tier1.sources.cmccSrc1.ignorePattern = ^(.)*\\.tmp$
+tier1.sources.cmccSrc1.decodeErrorPolicy = IGNORE
+tier1.sources.cmccSrc1.deletePolicy = IMMEDIATE
+tier1.sources.cmccSrc1.batchSize = 50
+  
+# Each sink's type must be defined  
+tier1.sinks.cmccSink1.type = org.apache.flume.sink.kafka.KafkaSink
+tier1.sinks.cmccSink1.brokerList =hadoop-r720-3:9092 
+tier1.sinks.cmccSink1.requiredAcks=1
+tier1.sinks.cmccSink1.topic=cmccServerbuilder
+tier1.sinks.cmccSink1.batchSize = 500  
+tier1.sinks.cmccSink1.channel = cmccCh1
+  
+# Each channel's type is defined.  
+tier1.channels.cmccCh1.type = memory  
+tier1.channels.cmccCh1.capacity = 100000
+tier1.channels.cmccCh1.transactionCapacity = 100000
+
+############################
+#hive_protocol_flow_min
+############################
+#source section  
+tier1.sources.cmccSrc2.type = spooldir
+tier1.sources.cmccSrc2.channels = cmccCh2
+tier1.sources.cmccSrc2.spoolDir = /home/hadoop/cmcc/hivedata/ProtoProductStatis/
+tier1.sources.cmccSrc2.deserializer.maxLineLength = 10240
+tier1.sources.cmccSrc2.fileHeader = false
+tier1.sources.cmccSrc2.ignorePattern = ^(.)*\\.tmp$
+tier1.sources.cmccSrc2.decodeErrorPolicy = IGNORE
+tier1.sources.cmccSrc2.deletePolicy = IMMEDIATE
+tier1.sources.cmccSrc2.batchSize = 50
+  
+# Each sink's type must be defined  
+tier1.sinks.cmccSink2.type = org.apache.flume.sink.kafka.KafkaSink
+tier1.sinks.cmccSink2.brokerList =hadoop-r720-3:9092 
+tier1.sinks.cmccSink2.requiredAcks=1
+tier1.sinks.cmccSink2.topic=cmccProtocol
+tier1.sinks.cmccSink2.batchSize = 500  
+tier1.sinks.cmccSink2.channel = cmccCh2
+  
+# Each channel's type is defined.  
+tier1.channels.cmccCh2.type = memory  
+tier1.channels.cmccCh2.capacity = 100000
+tier1.channels.cmccCh2.transactionCapacity = 100000
+
+############################
+#hive_destip_flow_min
+############################
+#source section  
+tier1.sources.cmccSrc3.type = spooldir
+tier1.sources.cmccSrc3.channels = cmccCh3
+tier1.sources.cmccSrc3.spoolDir = /home/hadoop/cmcc/hivedata/DestIPStatis/
+tier1.sources.cmccSrc3.deserializer.maxLineLength = 10240
+tier1.sources.cmccSrc3.fileHeader = false
+tier1.sources.cmccSrc3.ignorePattern = ^(.)*\\.tmp$
+tier1.sources.cmccSrc3.decodeErrorPolicy = IGNORE
+tier1.sources.cmccSrc3.deletePolicy = IMMEDIATE
+tier1.sources.cmccSrc3.batchSize = 50
+  
+# Each sink's type must be defined  
+tier1.sinks.cmccSink3.type = org.apache.flume.sink.kafka.KafkaSink
+tier1.sinks.cmccSink3.brokerList =hadoop-r720-3:9092 
+tier1.sinks.cmccSink3.requiredAcks=1
+tier1.sinks.cmccSink3.topic=cmccDestip
+tier1.sinks.cmccSink3.batchSize = 500  
+tier1.sinks.cmccSink3.channel = cmccCh3
+  
+# Each channel's type is defined.  
+tier1.channels.cmccCh3.type = memory  
+tier1.channels.cmccCh3.capacity = 100000
+tier1.channels.cmccCh3.transactionCapacity = 100000
+
+############################
+#hive_ip_quality_min
+############################
+#source section  
+tier1.sources.cmccSrc4.type = spooldir
+tier1.sources.cmccSrc4.channels = cmccCh4
+tier1.sources.cmccSrc4.spoolDir = /home/hadoop/cmcc/hivedata/HiveIpQualityStatis/
+tier1.sources.cmccSrc4.deserializer.maxLineLength = 10240
+tier1.sources.cmccSrc4.fileHeader = false
+tier1.sources.cmccSrc4.ignorePattern = ^(.)*\\.tmp$
+tier1.sources.cmccSrc4.decodeErrorPolicy = IGNORE
+tier1.sources.cmccSrc4.deletePolicy = IMMEDIATE
+tier1.sources.cmccSrc4.batchSize = 50
+  
+# Each sink's type must be defined  
+tier1.sinks.cmccSink4.type = org.apache.flume.sink.kafka.KafkaSink
+tier1.sinks.cmccSink4.brokerList =hadoop-r720-3:9092 
+tier1.sinks.cmccSink4.requiredAcks=1
+tier1.sinks.cmccSink4.topic=cmccIpquality
+tier1.sinks.cmccSink4.batchSize = 500  
+tier1.sinks.cmccSink4.channel = cmccCh4
+  
+# Each channel's type is defined.  
+tier1.channels.cmccCh4.type = memory  
+tier1.channels.cmccCh4.capacity = 100000
+tier1.channels.cmccCh4.transactionCapacity = 100000
+
+############################
+#hive_flow_min
+############################
+#source section  
+tier1.sources.cmccSrc5.type = spooldir
+tier1.sources.cmccSrc5.channels = cmccCh5
+tier1.sources.cmccSrc5.spoolDir = /home/hadoop/cmcc/hivedata/HiveFlowStatis/
+tier1.sources.cmccSrc5.deserializer.maxLineLength = 10240
+tier1.sources.cmccSrc5.fileHeader = false
+tier1.sources.cmccSrc5.ignorePattern = ^(.)*\\.tmp$
+tier1.sources.cmccSrc5.decodeErrorPolicy = IGNORE
+tier1.sources.cmccSrc5.deletePolicy = IMMEDIATE
+tier1.sources.cmccSrc5.batchSize = 50
+  
+# Each sink's type must be defined  
+tier1.sinks.cmccSink5.type = org.apache.flume.sink.kafka.KafkaSink
+tier1.sinks.cmccSink5.brokerList =hadoop-r720-3:9092 
+tier1.sinks.cmccSink5.requiredAcks=1
+tier1.sinks.cmccSink5.topic=cmccFlow
+tier1.sinks.cmccSink5.batchSize = 500  
+tier1.sinks.cmccSink5.channel = cmccCh5
+  
+# Each channel's type is defined.  
+tier1.channels.cmccCh5.type = memory  
+tier1.channels.cmccCh5.capacity = 100000
+tier1.channels.cmccCh5.transactionCapacity = 100000
+
+############################
+#original_bill
+############################
+#source section  
+tier1.sources.cmccSrc6.type = spooldir
+tier1.sources.cmccSrc6.channels = cmccCh6
+tier1.sources.cmccSrc6.spoolDir = /home/hadoop/cmcc/hivedata/OriginalBill/
+tier1.sources.cmccSrc6.deserializer.maxLineLength = 10240
+tier1.sources.cmccSrc6.fileHeader = false
+tier1.sources.cmccSrc6.ignorePattern = ^(.)*\\.tmp$
+tier1.sources.cmccSrc6.decodeErrorPolicy = IGNORE
+tier1.sources.cmccSrc6.deletePolicy = IMMEDIATE
+tier1.sources.cmccSrc6.batchSize = 50
+  
+# Each sink's type must be defined  
+tier1.sinks.cmccSink6.type = org.apache.flume.sink.kafka.KafkaSink
+tier1.sinks.cmccSink6.brokerList =hadoop-r720-3:9092 
+tier1.sinks.cmccSink6.requiredAcks=1
+tier1.sinks.cmccSink6.topic=cmccOriginal
+tier1.sinks.cmccSink6.batchSize = 500  
+tier1.sinks.cmccSink6.channel = cmccCh6
+  
+# Each channel's type is defined.  
+tier1.channels.cmccCh6.type = memory  
+tier1.channels.cmccCh6.capacity = 100000
+tier1.channels.cmccCh6.transactionCapacity = 100000
+

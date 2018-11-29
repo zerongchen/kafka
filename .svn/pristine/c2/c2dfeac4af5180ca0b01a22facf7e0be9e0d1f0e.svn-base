@@ -1,0 +1,19 @@
+#创建topic
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccServerbuilder
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccProtocol
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccDestip
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccIpquality
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccFlow
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccPagequality
+
+#查看topic列表
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --list --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2
+
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccCommonoriginalbill
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccImoriginalbill
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccRtsporiginalbill
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccVoiporiginalbill
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccP2poriginalbill
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccFtporiginalbill
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccEmailoriginalbill
+/opt/cloudera/parcels/KAFKA/lib/kafka/bin/kafka-topics.sh --create --zookeeper hadoop-r720-1,hadoop-r720-2,hadoop-r720-3:2181/kafka_2 --replication-factor 2 --partitions 12 --topic cmccHttporiginalbill

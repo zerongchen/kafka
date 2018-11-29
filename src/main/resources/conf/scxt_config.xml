@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!-- #kafka config -->
+	<kafka.zks>ZYC2-SJFX-LLCJJK-HADOOP02:2181,ZYC2-SJFX-LLCJJK-HADOOP01:2181,ZYC2-SJFX-LLCJJK-WEB01:2181</kafka.zks>
+	<kafka.brokerZkPath>/kafka_2/brokers</kafka.brokerZkPath>
+	<!-- #hdfs config -->
+	<hdfs.uri>hdfs://ZYC2-SJFX-LLCJJK-HADOOP02:8020/</hdfs.uri>
+	<hdfs.user>hdfs</hdfs.user>
+	<!-- #storm config -->
+	<storm.zks>ZYC2-SJFX-LLCJJK-HADOOP02,ZYC2-SJFX-LLCJJK-HADOOP01,ZYC2-SJFX-LLCJJK-WEB01</storm.zks>
+	<storm.zkport>2181</storm.zkport>
+	<storm.zkRoot>/storm</storm.zkRoot>
+	<storm.workerNum>3</storm.workerNum>
+	<!-- #hive config -->
+	<hive.jdbc.url>jdbc:hive2://ZYC2-SJFX-LLCJJK-HADOOP01:10000/cmcc</hive.jdbc.url>
+	<hive.jdbc.driver>org.apache.hive.jdbc.HiveDriver</hive.jdbc.driver>
+	<hive.jdbc.user>hdfs</hive.jdbc.user>
+	<hive.jdbc.passwd></hive.jdbc.passwd>
+	
+	<!-- # catalog config -->
+	<fiveMinDatalist>
+		<item>
+			<topic>cmccServerbuilder</topic>
+			<spout.parallelism_hint>1</spout.parallelism_hint>
+			<bolt.parallelism_hint>2</bolt.parallelism_hint>
+			<tablename>hive_serverbuild_flow_min</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/hive_serverbuild_flow_min/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>300000</sync.count>
+		</item>
+		  
+		<item>
+			<topic>cmccProtocol</topic>
+			<spout.parallelism_hint>1</spout.parallelism_hint>
+			<bolt.parallelism_hint>2</bolt.parallelism_hint>
+			<tablename>hive_protocol_flow_min</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/hive_protocol_flow_min/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>300000</sync.count>
+		</item>
+		
+		<item>
+			<topic>cmccDestip</topic>
+			<spout.parallelism_hint>1</spout.parallelism_hint>
+			<bolt.parallelism_hint>2</bolt.parallelism_hint>
+			<tablename>hive_destip_flow_min</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/hive_destip_flow_min/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>300000</sync.count>
+		</item>
+		
+		<item>
+			<topic>cmccIpquality</topic>
+			<spout.parallelism_hint>1</spout.parallelism_hint>
+			<bolt.parallelism_hint>2</bolt.parallelism_hint>
+			<tablename>hive_ip_quality_min</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/hive_ip_quality_min/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>300000</sync.count>
+		</item>
+		
+		<item>
+			<topic>cmccFlow</topic>
+			<spout.parallelism_hint>1</spout.parallelism_hint>
+			<bolt.parallelism_hint>2</bolt.parallelism_hint>
+			<tablename>hive_flow_min</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/hive_flow_min/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>300000</sync.count>
+		</item>
+		
+		<item>
+			<topic>cmccPagequality</topic>
+			<spout.parallelism_hint>1</spout.parallelism_hint>
+			<bolt.parallelism_hint>2</bolt.parallelism_hint>
+			<tablename>hive_page_quality_min</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/hive_page_quality_min/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>300000</sync.count>
+		</item>
+		
+	</fiveMinDatalist>
+	
+	<originalBilllist>
+		<originalBill>
+			<topic>cmccCommonoriginalbill</topic>
+			<spout.parallelism_hint>3</spout.parallelism_hint>
+			<bolt.parallelism_hint>10</bolt.parallelism_hint>
+			<tablename>original_bill</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/original_bill/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>500000</sync.count>
+		</originalBill>
+		<originalBill>
+			<topic>cmccImoriginalbill</topic>
+			<spout.parallelism_hint>2</spout.parallelism_hint>
+			<bolt.parallelism_hint>3</bolt.parallelism_hint>
+			<tablename>original_bill</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/original_bill/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>500000</sync.count>
+		</originalBill>
+		<originalBill>
+			<topic>cmccRtsporiginalbill</topic>
+			<spout.parallelism_hint>2</spout.parallelism_hint>
+			<bolt.parallelism_hint>3</bolt.parallelism_hint>
+			<tablename>original_bill</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/original_bill/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>500000</sync.count>
+		</originalBill>
+		<originalBill>
+			<topic>cmccVoiporiginalbill</topic>
+			<spout.parallelism_hint>2</spout.parallelism_hint>
+			<bolt.parallelism_hint>3</bolt.parallelism_hint>
+			<tablename>original_bill</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/original_bill/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>500000</sync.count>
+		</originalBill>
+		<originalBill>
+			<topic>cmccP2poriginalbill</topic>
+			<spout.parallelism_hint>2</spout.parallelism_hint>
+			<bolt.parallelism_hint>3</bolt.parallelism_hint>
+			<tablename>original_bill</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/original_bill/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>500000</sync.count>
+		</originalBill>
+		<originalBill>
+			<topic>cmccFtporiginalbill</topic>
+			<spout.parallelism_hint>2</spout.parallelism_hint>
+			<bolt.parallelism_hint>3</bolt.parallelism_hint>
+			<tablename>original_bill</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/original_bill/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>500000</sync.count>
+		</originalBill>
+		<originalBill>
+			<topic>cmccEmailoriginalbill</topic>
+			<spout.parallelism_hint>2</spout.parallelism_hint>
+			<bolt.parallelism_hint>3</bolt.parallelism_hint>
+			<tablename>original_bill</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/original_bill/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>500000</sync.count>
+		</originalBill>
+		<originalBill>
+			<topic>cmccHttporiginalbill</topic>
+			<spout.parallelism_hint>3</spout.parallelism_hint>
+			<bolt.parallelism_hint>10</bolt.parallelism_hint>
+			<tablename>original_bill</tablename>
+			<hdfs.path>/user/hive/warehouse/cmcc.db/original_bill/</hdfs.path>
+			<tick.tuple.interval>300</tick.tuple.interval>
+			<sync.count>300000</sync.count>
+		</originalBill>
+	</originalBilllist>
+	
+</config>
